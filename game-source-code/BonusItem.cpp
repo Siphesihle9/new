@@ -1,16 +1,17 @@
 #include "BonusItem.hpp"
 #include "raylib-cpp.hpp"
+#include "raylib-cpp.hpp"
 
 BonusItem::BonusItem(Vector2 position, BonusType type, int value)
     : position(position), type(type), value(value), 
       spawnTime(GetTime()), lifeTime(10.0f) {
     
     switch (type) {
-        case BonusType::APPLE: color = RED; break;
-        case BonusType::CHERRY: color = MAROON; break;
-        case BonusType::STRAWBERRY: color = PINK; break;
-        case BonusType::ORANGE: color = ORANGE; break;
-    }
+    case BonusType::BONUS_APPLE: color = RED; break;
+    case BonusType::BONUS_CHERRY: color = MAROON; break;
+    case BonusType::BONUS_STRAWBERRY: color = PINK; break;
+    case BonusType::BONUS_ORANGE: color = ORANGE; break;
+}
 }
 
 void BonusItem::Update() {

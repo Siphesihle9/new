@@ -2,10 +2,10 @@
 #include "raylib-cpp.hpp"
 
 enum class BonusType {
-    APPLE,
-    CHERRY,
-    STRAWBERRY,
-    ORANGE
+    BONUS_APPLE,     // Changed from APPLE
+    BONUS_CHERRY,    // Changed from CHERRY  
+    BONUS_STRAWBERRY,// Changed from STRAWBERRY
+    BONUS_ORANGE     // Changed from ORANGE
 };
 
 class BonusItem {

@@ -1,6 +1,8 @@
 #include "Player.hpp"
 #include "raylib-cpp.hpp"
 #include <algorithm>
+#include <cmath>  // Add this for sqrtf
+#include "raylib.h"
 
 Player::Player(Vector2 startPosition, float radius, float speed)
     : position(startPosition), velocity({0, 0}), facingDirection({1, 0}),
@@ -86,9 +88,9 @@ void Player::Draw() const {
         DrawLineEx(position, endPos, 3.0f, RED);
     }
     
-    // Draw eyes
-    DrawCircle(position.x - radius * 0.3f, position.y - radius * 0.3f, radius * 0.2f, WHITE);
-    DrawCircle(position.x + radius * 0.3f, position.y - radius * 0.3f, radius * 0.2f, WHITE);
-    DrawCircle(position.x - radius * 0.3f, position.y - radius * 0.3f, radius * 0.1f, BLACK);
-    DrawCircle(position.x + radius * 0.3f, position.y - radius * 0.3f, radius * 0.1f, BLACK);
+    // Change all DrawCircle to DrawCircleV
+DrawCircleV(Vector2{position.x - radius * 0.3f, position.y - radius * 0.3f}, radius * 0.2f, WHITE);
+DrawCircleV(Vector2{position.x + radius * 0.3f, position.y - radius * 0.3f}, radius * 0.2f, WHITE);
+DrawCircleV(Vector2{position.x - radius * 0.3f, position.y - radius * 0.3f}, radius * 0.1f, BLACK);
+DrawCircleV(Vector2{position.x + radius * 0.3f, position.y - radius * 0.3f}, radius * 0.1f, BLACK);
 }

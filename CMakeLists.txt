@@ -28,7 +28,7 @@ message("Processing CMakeLists.txt")
 cmake_minimum_required(VERSION 4.0.3) # the currently stable version of CMake is required
 project(elen3009-project)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (WIN32)
