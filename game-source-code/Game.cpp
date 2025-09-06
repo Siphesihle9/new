@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <optional>
 
 Game::Game() 
     : window(std::make_unique<raylib::Window>(800, 600, "Dig Dug")),
