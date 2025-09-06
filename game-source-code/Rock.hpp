@@ -16,6 +16,7 @@ public:
     Rock(Vector2 startPosition, float radius);
     
     void Update(const TunnelSystem& tunnelSystem);
+    void Update(const TunnelSystem& tunnelSystem, float deltaTime); // For testing
     void Draw() const;
     
     Vector2 GetPosition() const { return position; }

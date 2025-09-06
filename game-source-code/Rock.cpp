@@ -6,6 +6,10 @@ Rock::Rock(Vector2 startPosition, float radius)
       isFalling(false), isSettled(false), fallSpeed(100.0f), color(GRAY) {}
 
 void Rock::Update(const TunnelSystem& tunnelSystem) {
+    Update(tunnelSystem, GetFrameTime()); // Default to GetFrameTime()
+}
+
+void Rock::Update(const TunnelSystem& tunnelSystem, float deltaTime) {
     if (isSettled) return;
     
     if (!isFalling) {
@@ -17,8 +21,8 @@ void Rock::Update(const TunnelSystem& tunnelSystem) {
     }
     
     if (isFalling) {
-        velocity.y += fallSpeed * GetFrameTime();
-        position.y += velocity.y * GetFrameTime();
+        velocity.y += fallSpeed * deltaTime;
+        position.y += velocity.y * deltaTime;
         
         // Check if hit ground or tunnel
         Vector2 below = {position.x, position.y + radius + 1.0f};
