@@ -18,7 +18,7 @@ private:
     Color color;
     
 public:
-    BonusItem(Vector2 position, BonusType type, int value);
+    BonusItem(Vector2 position, BonusType type, int value, float currentTime = GetTime());
     
     void Update();
     void Draw() const;
@@ -27,4 +27,5 @@ public:
     int GetValue() const { return value; }
     float GetRadius() const { return 15.0f; }
     bool ShouldRemove() const;
+    bool ShouldRemove(float currentTime) const; // Overload for testing
 };

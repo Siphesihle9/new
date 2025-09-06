@@ -1,12 +1,10 @@
 #include "BonusItem.hpp"
 #include "raylib-cpp.hpp"
-#include "raylib-cpp.hpp"
 
-BonusItem::BonusItem(Vector2 position, BonusType type, int value)
+BonusItem::BonusItem(Vector2 position, BonusType type, int value, float currentTime)
     : position(position), type(type), value(value),
-      spawnTime(GetTime()), lifeTime(10.0f)
+      spawnTime(currentTime), lifeTime(10.0f)
 {
-
     switch (type)
     {
     case BonusType::BONUS_APPLE:
@@ -44,4 +42,9 @@ void BonusItem::Draw() const
 bool BonusItem::ShouldRemove() const
 {
     return GetTime() - spawnTime > lifeTime;
+}
+
+bool BonusItem::ShouldRemove(float currentTime) const
+{
+    return currentTime - spawnTime > lifeTime;
 }
