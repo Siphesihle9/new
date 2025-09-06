@@ -7,11 +7,12 @@
 
 Game::Game() 
     : window(std::make_unique<raylib::Window>(800, 600, "Dig Dug")),
+      player({400, 300}, 32.0f, 200.0f),  // Add player initialization here
       currentState(GameState::SPLASH),
       score(0),
       lives(3),
       currentLevel(1),
-      gameTime(0.0f) {  // Make sure this line ends with a parenthesis
+      gameTime(0.0f) {
     
     // Load resources
     dirtTexture = raylib::Texture2D("resources/images/dirt.png");
