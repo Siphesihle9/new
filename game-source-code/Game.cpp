@@ -12,7 +12,8 @@ Game::Game()
       score(0),
       lives(3),
       currentLevel(1),
-      gameTime(0.0f){ // Removed the duplicate constructor initialization
+      gameTime(0.0f)
+{
 
     // Load resources
     dirtTexture = raylib::Texture2D("resources/images/dirt.png");
@@ -80,7 +81,7 @@ void Game::SpawnRocks(int count)
 
 void Game::SpawnBonusItems()
 {
-    bonusItems.emplace_back(Vector2{400, 300}, BonusType::BONUS_APPLE, 100);
+    bonusItems.emplace_back(Vector2{400, 300}, BonusType::BONUS_APPLE, 100, GetTime());
     bonusItems.emplace_back(Vector2{200, 200}, BonusType::BONUS_CHERRY, 150);
 }
 
