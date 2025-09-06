@@ -4,6 +4,8 @@
 #include "TunnelSystem.hpp"
 #include <vector>
 #include <memory>
+#include <optional>  // Add this line
+#include "Harpoon.hpp"  // Add this line
 
 class Player {
 private:

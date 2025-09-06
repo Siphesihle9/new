@@ -6,8 +6,8 @@
 
 Player::Player(Vector2 startPosition, float radius, float speed)
     : position(startPosition), velocity({0, 0}), facingDirection({1, 0}),
-      radius(radius), speed(speed), isDigging(false), 
-      color(SKYBLUE), digCooldown(0), maxDigCooldown(0.1f) {}
+    radius(radius), speed(speed), isDigging(false), 
+    color(SKYBLUE), digCooldown(0), maxDigCooldown(0.1f) {}
 
 void Player::Update() {
     // Handle input
