@@ -6,10 +6,16 @@ Harpoon::Harpoon(Vector2 startPosition, Vector2 direction, float maxDistance)
       speed(500.0f), maxDistance(maxDistance), distanceTraveled(0), shouldRemove(false) {}
 
 void Harpoon::Update() {
-    position.x += direction.x * speed * GetFrameTime();
-    position.y += direction.y * speed * GetFrameTime();
+    // Use a small fixed delta time for testing, or GetFrameTime() in game
+    float deltaTime = GetFrameTime();
+    if (deltaTime == 0) {
+        deltaTime = 0.016f; // Default 60fps frame time for tests
+    }
     
-    distanceTraveled += speed * GetFrameTime();
+    position.x += direction.x * speed * deltaTime;
+    position.y += direction.y * speed * deltaTime;
+    
+    distanceTraveled += speed * deltaTime;
     
     // Check boundaries and max distance
     if (position.x < 0 || position.x > GetScreenWidth() ||
