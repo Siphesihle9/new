@@ -11,7 +11,7 @@ private:
     bool shouldRemove;
     
 public:
-    Harpoon(Vector2 startPosition, Vector2 direction, float speed);
+    Harpoon(Vector2 startPosition, Vector2 direction, float maxDistance);
     
     void Update();
     void Draw() const;

@@ -1,9 +1,9 @@
 #include "Harpoon.hpp"
 #include "raylib-cpp.hpp"
 
-Harpoon::Harpoon(Vector2 startPosition, Vector2 direction, float speed)
+Harpoon::Harpoon(Vector2 startPosition, Vector2 direction, float maxDistance)
     : position(startPosition), direction(Vector2Normalize(direction)),
-      speed(speed), maxDistance(300.0f), distanceTraveled(0), shouldRemove(false) {}
+      speed(500.0f), maxDistance(maxDistance), distanceTraveled(0), shouldRemove(false) {}
 
 void Harpoon::Update() {
     position.x += direction.x * speed * GetFrameTime();

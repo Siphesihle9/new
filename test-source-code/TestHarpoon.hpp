@@ -12,7 +12,12 @@ TEST_CASE("Harpoon Movement and Behavior") {
     
     SUBCASE("Harpoon moves in correct direction") {
         Vector2 initialPos = harpoon.GetPosition();
-        harpoon.Update();
+        
+        // Simulate multiple updates to see movement
+        for (int i = 0; i < 5; i++) {
+            harpoon.Update();
+        }
+        
         Vector2 newPos = harpoon.GetPosition();
         
         CHECK(newPos.x > initialPos.x); // Moving right
@@ -25,12 +30,18 @@ TEST_CASE("Harpoon Movement and Behavior") {
     
     SUBCASE("Harpoon gets removed when out of bounds") {
         Harpoon outOfBoundsHarpoon({-10, 300}, {1, 0}, 300.0f);
-        outOfBoundsHarpoon.Update();
+        
+        // Simulate several updates to move out of bounds
+        for (int i = 0; i < 10; i++) {
+            outOfBoundsHarpoon.Update();
+            if (outOfBoundsHarpoon.ShouldRemove()) break;
+        }
+        
         CHECK(outOfBoundsHarpoon.ShouldRemove());
     }
     
     SUBCASE("Harpoon gets removed after max distance") {
-        Harpoon longHarpoon({400, 300}, {1, 0}, 1000.0f);
+        Harpoon longHarpoon({400, 300}, {1, 0}, 100.0f); // Shorter max distance
         
         // Simulate many updates to exceed max distance
         for (int i = 0; i < 50; i++) {
