@@ -72,8 +72,8 @@ void Game::SpawnRocks(int count) {
 }
 
 void Game::SpawnBonusItems() {
-    bonusItems.emplace_back(Vector2{400, 300}, BonusType::APPLE, 100);
-    bonusItems.emplace_back(Vector2{200, 200}, BonusType::CHERRY, 150);
+    bonusItems.emplace_back(Vector2{400, 300}, BonusType::BONUS_APPLE, 100);
+    bonusItems.emplace_back(Vector2{200, 200}, BonusType::BONUS_CHERRY, 150);
 }
 
 void Game::Run() {
