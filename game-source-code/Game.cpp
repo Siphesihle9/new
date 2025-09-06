@@ -11,7 +11,7 @@ Game::Game()
       score(0),
       lives(3),
       currentLevel(1),
-      gameTime(0.0f) {  // Removed the duplicate constructor initialization
+      gameTime(0.0f) {  // Make sure this line ends with a parenthesis
     
     // Load resources
     dirtTexture = raylib::Texture2D("resources/images/dirt.png");
