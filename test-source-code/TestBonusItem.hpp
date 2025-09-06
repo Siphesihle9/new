@@ -3,7 +3,7 @@
 #include "../game-source-code/BonusItem.hpp"
 
 TEST_CASE("Bonus Item Behavior and Functions") {
-    BonusItem apple({400, 300}, BonusType::APPLE, 100);
+    BonusItem apple({400, 300}, BonusType::BONUS_APPLE, 100);
     
     SUBCASE("Bonus item initial position is correct") {
         CHECK(apple.GetPosition().x == 400.0f);
@@ -23,9 +23,9 @@ TEST_CASE("Bonus Item Behavior and Functions") {
     }
     
     SUBCASE("Different bonus types have different values") {
-        BonusItem cherry({200, 200}, BonusType::CHERRY, 150);
-        BonusItem strawberry({300, 300}, BonusType::STRAWBERRY, 200);
-        BonusItem orange({400, 400}, BonusType::ORANGE, 250);
+        BonusItem cherry({200, 200}, BonusType::BONUS_CHERRY, 150);
+        BonusItem strawberry({300, 300}, BonusType::BONUS_STRAWBERRY, 200);
+        BonusItem orange({400, 400}, BonusType::BONUS_ORANGE, 250);
         
         CHECK(cherry.GetValue() == 150);
         CHECK(strawberry.GetValue() == 200);
