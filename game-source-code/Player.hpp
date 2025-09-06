@@ -4,8 +4,7 @@
 #include "TunnelSystem.hpp"
 #include <vector>
 #include <memory>
-#include <optional>  // Add this line
-#include "Harpoon.hpp"  // Add this line
+#include <optional>
 
 class Player {
 private:
@@ -23,8 +22,10 @@ public:
     Player(Vector2 startPosition, float radius, float speed);
     
     void Update();
+    void Update(float deltaTime); // For testing
     void Draw() const;
     void Move(Vector2 direction);
+    void Move(Vector2 direction, float deltaTime); // For testing
     std::optional<Harpoon> FireHarpoon();
     void UpdateTunnels(TunnelSystem& tunnelSystem);
     
@@ -33,4 +34,5 @@ public:
     Vector2 GetFacingDirection() const { return facingDirection; }
     bool IsDigging() const { return isDigging; }
     void SetPosition(Vector2 newPos) { position = newPos; }
+    void SetVelocity(Vector2 newVel) { velocity = newVel; } // For testing
 };
