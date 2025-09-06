@@ -11,13 +11,7 @@ Game::Game()
       score(0),
       lives(3),
       currentLevel(1),
-      Game::Game() 
-    : window(std::make_unique<raylib::Window>(800, 600, "Dig Dug")),
-      currentState(GameState::SPLASH),
-      score(0),
-      lives(3),
-      currentLevel(1),
-      gameTime(0.0f) {  // Change this line - add .0f for float
+      gameTime(0.0f) {  // Removed the duplicate constructor initialization
     
     // Load resources
     dirtTexture = raylib::Texture2D("resources/images/dirt.png");
